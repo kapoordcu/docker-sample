@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build  -t MY_SPECIAL_TAG -f Dockerfile.dev .
+  - docker build  -t kapoordcu/docker-sample -f Dockerfile.dev .
 
 script:
-  - docker run MY_SPECIAL_TAG npm run test -- --coverage
+  - docker run kapoordcu/docker-sample npm run test -- --coverage
