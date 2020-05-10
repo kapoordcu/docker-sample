@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build  -t MY_SPECIAL_TAG -f Dockerfile.dev .
+
+script:
+  - docker run MY_SPECIAL_TAG npm run test -- --coverage
