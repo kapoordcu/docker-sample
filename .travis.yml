@@ -7,3 +7,16 @@ before_install:
 
 script:
   - docker run kapoordcu/docker-sample npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "docker-sample"
+  env: "DockerSample-env"
+  bucket_name: "elasticbeanstalk-us-east-2-198304875403"
+  bucket_path: "docker-sample"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
